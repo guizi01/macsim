@@ -1,9 +1,37 @@
 #summary One-sentence summary of this page.
 
-= Introduction =
+= How to build macsim =
 
-Add your content here.
+== Requirement ==
 
+== Build Steps ==
+Please refer to macsim-top/trunk/README
+
+aclocal
+
+automake --add-missing
+
+autoconf
+
+./configure
+
+make
+
+OR
+aclocal && automake --add-missing && autoconf && ./configure
+
+make
+
+OR 
+
+./autogen.sh
+
+make
+
+
+= How to apply patch =
+
+Please refer to macsim-top/trunk/INSTALL
 
 = Details =
 
