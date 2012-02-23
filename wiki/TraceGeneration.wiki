@@ -1,0 +1,9 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+This page describes how to generate traces for MacSim simulator
+
+= Details =
+
+Will be added soon
