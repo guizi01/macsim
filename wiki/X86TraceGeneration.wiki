@@ -2,7 +2,9 @@
 
 = Introduction =
 
-Add your content here.
+MacSim supports x86-ISA simulations. Although both single-threaded/multi-threaded applications are _runnable_, but the correct execution for multi-threaded applications are not guaranteed due to the lack of cache coherence protocol in MacSim.
+
+We use PIN[http://www.pintool.org]
 
 
 = Details =
