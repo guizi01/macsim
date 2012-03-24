@@ -5,9 +5,22 @@
 Add your content here.
 
 
-= Details =
+= How to get kernel information =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+ # Execute the following command for all cuda files.
+{{{
+nvcc --cubin --ptxas-options=-v -arch sm_20 *.cu
+}}}
+ # You will get following information.
+{{{
+ptxas info    : Compiling entry function '_Z7cenergyifPf' for 'sm_20'
+ptxas info    : Used 26 registers, 48 bytes cmem[0], 64000 bytes cmem[2], 12 bytes cmem[16]
+}}}
+ # Write a file with following convention.
+{{{
+kernel_name register_usage shared_memory_usage
+}}}
+   * For example
+{{{
+_Z7cenergyifPf 26 0
+}}}
