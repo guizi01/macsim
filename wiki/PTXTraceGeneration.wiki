@@ -1,9 +1,12 @@
-#summary One-sentence summary of this page.
+#summary How to generate GPU (PTX) traces
 
 = Introduction =
 
-Add your content here.
+This page describes how to generate GPU (PTX) traces using GPUOcelot
 
+= Build GPUOcelot libraries =
+
+Please refer to http://code.google.com/p/gpuocelot/ to install GPUOcelot
 
 = How to get kernel information =
 
@@ -24,3 +27,29 @@ kernel_name register_usage shared_memory_usage
 {{{
 _Z7cenergyifPf 26 0
 }}}
+
+= Setting env. variables =
+
+GPUOcelot trace generator requires following information that is set with environmental variables.
+
+{{{
+export TRACE_PATH=trace_path_that_you_want_to_store
+export USE_KERNEL_NAME=1
+export KERNEL_INFO_PATH=kernel_information_file_that_you_created
+export COMPUTE_VERSION=2.0
+}}}
+
+= Building a binary with GPUOcelot libraries =
+ * Link against GPUOcelot libraries by adding following flags.
+{{{
+`OcelotConfig -l` -locelotTrace
+}}}
+ * Sometimes you many need to include boost libraries as well.
+{{{
+-lboost_thread-mt -lboost_serialization-mt -lboost_wserialization-mt -lboost_filesystem-mt -lboost_system-mt
+}}}
+
+= Generating a trace =
+
+ # Once you have your binary linked against GPUOcelot libraries, you just need to run your binary.
+ # Then, traces will be created in TRACE_PATH directory.
