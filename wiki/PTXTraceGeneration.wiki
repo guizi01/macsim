@@ -4,9 +4,11 @@
 
 This page describes how to generate GPU (PTX) traces using GPUOcelot
 
+
 = Build GPUOcelot libraries =
 
 Please refer to http://code.google.com/p/gpuocelot/ to install GPUOcelot
+
 
 = How to get kernel information =
 
@@ -28,6 +30,7 @@ kernel_name register_usage shared_memory_usage
 _Z7cenergyifPf 26 0
 }}}
 
+
 = Setting env. variables =
 
 GPUOcelot trace generator requires following information that is set with environmental variables.
@@ -39,6 +42,7 @@ export KERNEL_INFO_PATH=kernel_information_file_that_you_created
 export COMPUTE_VERSION=2.0
 }}}
 
+
 = Building a binary with GPUOcelot libraries =
  * Link against GPUOcelot libraries by adding following flags.
 {{{
@@ -48,6 +52,42 @@ export COMPUTE_VERSION=2.0
 {{{
 -lboost_thread-mt -lboost_serialization-mt -lboost_wserialization-mt -lboost_filesystem-mt -lboost_system-mt
 }}}
+
+
+= Copy GPUOcelot configuration file =
+
+ # Copy configure.ocelot file from GPUOcelot.
+ # Edit the following line in *trace:* section.
+{{{
+x86Trace: true
+}}}
+ * This is the sample configure.ocelot file content.
+{{{
+{
+    ocelot: "ocelot",
+    trace: {
+        database: "traces/database.trace",
+        ...
+        x86Trace: true 
+    },
+    cuda: {
+        implementation: CudaRuntime,
+        runtimeApiTrace: "trace/CudaAPI.trace"
+    },
+    executive: {
+        devices: [ emulated ],
+        port: 2011,
+        host: "127.0.0.1",
+        optimizationLevel: none,
+        workerThreadLimit: 2,
+        warpSize: 4
+    },
+    optimizations: {
+        subkernelSize: 1
+    }
+}
+}}}
+
 
 = Generating a trace =
 
