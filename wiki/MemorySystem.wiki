@@ -1,0 +1,27 @@
+#summary This page describes details of the memory system in MacSim.
+
+
+= Different memory types =
+
+ * l3_coupled_network
+ * l3_decoupled_network
+ * no_cache: all cache hierarchies are disabled.
+ * l2_coupled_local
+ * l2_decoupled_network
+ * l2_decoupled_local
+
+
+= How to set up different memory type =
+
+ # Change the default value in macsim/def/memory.param.def
+{{{
+param<MEMORY_TYPE, memory_type, string, TYPE>
+}}}
+ # params.in
+{{{
+memory_type TYPE
+}}}
+ # command line
+{{{
+./macsim --memory_type=TYPE
+}}}
