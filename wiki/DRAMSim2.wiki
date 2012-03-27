@@ -1,0 +1,17 @@
+#summary MacSim-DRAMSim2
+
+[http://www.ece.umd.edu/dramsim/ DRAMSim2] has been integrated with MacSim for more detailed DRAM simulation. Please note that we have to tune other parameters (as of 3/27/2012).
+
+
+= How to use DRAMSim2 with MacSim =
+
+ # Execute following command
+{{{
+./dramsim2.sh
+}}}
+ This will automatically check out the latest copy of DRAMSim2 and apply patches to necessary files.
+
+
+= How to choose DRAMSim2 configuration file =
+
+To be added
