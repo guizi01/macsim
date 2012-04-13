@@ -9,9 +9,19 @@
 {{{
 ./dramsim2.sh
 }}}
- This will automatically check out the latest copy of DRAMSim2 and apply patches to necessary files.
+
+This will automatically check out the latest copy of DRAMSim2 and apply patches to necessary files.
 
 
 = How to choose DRAMSim2 configuration file =
 
 To be added
+
+
+= How to build MacSim-DRAMSim2 =
+
+== scons ==
+
+{{{
+./build.py --dramsim
+}}}
