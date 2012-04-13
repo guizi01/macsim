@@ -2,40 +2,67 @@
 
 = How to build macsim =
 
+Currently, MacSim support two ways of build process.
+
+ # autotool
+ # scons
+
+Note that we will keep automake process for the macsim-sst build. Otherwise, we will maintain scons build.
+
+
 == Requirement ==
 
+ # scons
+  * ubuntu
+{{{
+apt-get install scons
+}}}
+ # autotools
+{{{
+apt-get install automake autoconf libtool
+}}}
+
+
 == Build Steps ==
+
+=== scons ===
+
+{{{
+./build.py
+}}}
+
+ * build options
+   * -j (--thread) : specify number of threads for parallel build
+   * -d : debug build (-g)
+   * -p : gprof build (-pg)
+   * -c : clean
+   * --dramsim : using DRAMSim2
+
+=== autotool ===
 Please refer to macsim-top/trunk/README
 
+{{{
+libtoolize
 aclocal
-
 automake --add-missing
-
 autoconf
-
 ./configure
-
 make
+}}}
 
 OR
-aclocal && automake --add-missing && autoconf && ./configure
-
+{{{
+libtoolize && aclocal && automake --add-missing && autoconf && ./configure
 make
+}}}
 
 OR 
-
+{{{
 ./autogen.sh
-
 make
+}}}
 
 
 = How to apply patch =
 
 Please refer to macsim-top/trunk/INSTALL
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
