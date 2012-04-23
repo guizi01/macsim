@@ -1,0 +1,44 @@
+#summary Brief description of the interconnection network model in MacSim.
+
+
+= Interconnection Model =
+
+Currently, MacSim provides three interconnection models.
+
+ # Very simple latency model
+ # Detailed pipelined router microarchitecture (*Default*)
+ # IRIS interconnection model (Prof. Yalamanchili's group in Georgia Tech)
+
+= How to use simple latency model =
+
+ # Specify flags
+{{{
+./macsim --enable_new_noc=0 --enable_iris=0
+}}}
+{{{
+// params.in
+enable_new_noc 0
+enable_iris 0
+}}}
+
+= How to use IRIS =
+
+ # Specify IRIS option during build process.
+{{{
+./build.py --iris
+}}} 
+{{{
+// macsim.config
+[Library]
+...
+iris: 1
+...
+}}}
+ # Enable IRIS flag
+{{{
+./macsim --enable_iris=1
+}}}
+{{{
+// params.in
+enable_iris 1
+}}}
