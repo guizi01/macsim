@@ -3,7 +3,7 @@
 = How to build macsim =
 
 Currently, MacSim support only SCons build process.
-Note that we will keep automake process only for the macsim-sst build, which is described in this [http://www.ece.umd.edu/dramsim/ page].
+Note that we will keep automake process only for the macsim-sst build, which is described in this [http://code.google.com/p/macsim/wiki/BuildingMacsimSST page].
 
 == Requirement ==
 
