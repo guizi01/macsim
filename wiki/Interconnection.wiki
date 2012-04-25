@@ -21,6 +21,22 @@ enable_new_noc 0
 enable_iris 0
 }}}
 
+= How to use detail latency model =
+
+This is the default configuration.
+
+ * Topology
+  # Bi-directional ring
+{{{
+noc_topology ring
+noc_dimension 1
+}}}
+  # 2D Mesh
+{{{
+noc_topology mesh
+noc_dimension 2
+}}}
+
 = How to use IRIS =
 
  # Specify IRIS option during build process.
