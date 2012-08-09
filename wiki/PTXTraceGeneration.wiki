@@ -10,37 +10,6 @@ This page describes how to generate GPU (PTX) traces using GPUOcelot
 Please refer to http://code.google.com/p/gpuocelot/ to install GPUOcelot
 
 
-= How to get kernel information =
-
- # Execute the following command for all cuda files.
-{{{
-nvcc --cubin --ptxas-options=-v -arch sm_20 *.cu
-}}}
- # You will get following information.
-{{{
-ptxas info    : Compiling entry function '_Z7cenergyifPf' for 'sm_20'
-ptxas info    : Used 26 registers, 48 bytes cmem[0], 64000 bytes cmem[2], 12 bytes cmem[16]
-}}}
- # Write a file with following convention.
-{{{
-kernel_name register_usage shared_memory_usage
-}}}
-   * For example
-{{{
-_Z7cenergyifPf 26 0
-}}}
-
-
-= Setting env. variables =
-
-GPUOcelot trace generator requires following information that is set with environmental variables.
-
-{{{
-export TRACE_PATH=trace_path_that_you_want_to_store
-export USE_KERNEL_NAME=1
-export KERNEL_INFO_PATH=kernel_information_file_that_you_created
-export COMPUTE_VERSION=2.0
-}}}
 
 
 = Building a binary with GPUOcelot libraries =
@@ -91,5 +60,42 @@ x86Trace: true
 
 = Generating a trace =
 
- # Once you have your binary linked against GPUOcelot libraries, you just need to run your binary.
- # Then, traces will be created in TRACE_PATH directory.
+Once you have your binary linked against GPUOcelot libraries,
+
+ # You need to create a kernel information file.
+ # You need to setup env. variable for GPUOcelot trace generator.
+
+ * Although you can follow steps below, we provide a script file to do so. Please find $(macsim_repo)/trunk/tools/gpu_tracegen.py for more descriptions.
+
+
+== How to get kernel information ==
+
+ # Execute the following command for all cuda files.
+{{{
+nvcc --cubin --ptxas-options=-v -arch sm_20 *.cu
+}}}
+ # You will get following information.
+{{{
+ptxas info    : Compiling entry function '_Z7cenergyifPf' for 'sm_20'
+ptxas info    : Used 26 registers, 48 bytes cmem[0], 64000 bytes cmem[2], 12 bytes cmem[16]
+}}}
+ # Write a file with following convention.
+{{{
+kernel_name register_usage shared_memory_usage
+}}}
+   * For example
+{{{
+_Z7cenergyifPf 26 0
+}}}
+
+
+== Setting env. variables ==
+
+GPUOcelot trace generator requires following information that is set with environmental variables.
+
+{{{
+export TRACE_PATH=trace_path_that_you_want_to_store
+export USE_KERNEL_NAME=1
+export KERNEL_INFO_PATH=kernel_information_file_that_you_created
+export COMPUTE_VERSION=2.0
+}}}
