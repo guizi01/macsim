@@ -19,5 +19,5 @@ LIBS=additionalLibs + ['-lglut', '-locelot', libsdk, '-lGLEW', '-lGLU', '-locelo
 
 Then, you just need to build the entire suite and run it. 
 
-# Note that binaries are usually located in .release_build directory. You need to find it from the directory.
-# You need to copy (or create symbolic link) data directory to the .release_build directory.
+ # Note that binaries are usually located in .release_build directory. You need to find it from the directory.
+ # You need to copy (or create symbolic link) data directory to the .release_build directory.
