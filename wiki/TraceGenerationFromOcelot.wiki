@@ -1,13 +1,23 @@
-#summary One-sentence summary of this page.
+#summary Create GPU traces from what GPUOcelot provided.
+#labels trace,gpu
+
 
 = Introduction =
 
-Add your content here.
+GPUOcelot provides many applications from different suites (CUDA SDK, Rodinia, Parboil).
+
+To generate traces from these benchmarks, you can simply need to change the SConscript file in the suite directory.
 
 
-= Details =
+= Example = 
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+You have to modify/add following in $GPUOcelot/cuda4.1sdk/SConscript
+
+
+LIBS=additionalLibs + ['-lglut', '-locelot', libsdk, '-lGLEW', '-lGLU', '-locelotTrace', '-lz', '-lboost_thread-mt', '-lboost_serialization-mt', '-lboost_wserialization-mt', '-lboost_filesystem-mt', '-lboost_system-mt'])
+
+
+Then, you just need to build the entire suite and run it. 
+
+# Note that binaries are usually located in .release_build directory. You need to find it from the directory.
+# You need to copy (or create symbolic link) data directory to the .release_build directory.
