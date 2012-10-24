@@ -1,13 +1,17 @@
-#summary One-sentence summary of this page.
+# Step-by-step instructions to build gpuocelot and make ready  use for MacSim GPU trace generation
 
-= Ocelot Library =
+The following commands should build *gpuocelot library* and *trace generators* without *errors* (tested with gpuocelot r2097), except for the errors due to warnings such as: 
+  # * variable ## set but not used* =>  please fix them appropriately.
+  # * will be initialized after [-Werror=reorder]* => please move *uint64_t total_inst_count* below *int kernel_count* in the interface/X86TraceGenerator.h.
 
-= Trace Generator =
+
+Please visit [http://code.google.com/p/gpuocelot/] for details.
 
 {{{
-libtoolize
-aclocal
-automake
-autoconf
-./configure
+$ svn checkout http://gpuocelot.googlecode.com/svn/trunk/ gpuocelot
+$ cd gpuocelot/ocelot
+$ sudo ./build.py --install                
+$ cd ../trace-generators
+$ libtoolize; aclocal; automake; autoconf; ./configure
+$ make; sudo make install
 }}}
