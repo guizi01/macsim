@@ -4,6 +4,7 @@ The following commands should build *gpuocelot library* and *trace generators* w
   # * variable ## set but not used* =>  please fix them appropriately.
   # * will be initialized after [-Werror=reorder]* => please move *uint64_t total_inst_count;* below *int kernel_count;* in the interface/X86TraceGenerator.h.
 
+(or, you can use sudo ./build.py --no-werr --install)
 
 Please visit [http://code.google.com/p/gpuocelot/] for details.
 
