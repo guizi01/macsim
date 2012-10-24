@@ -1,4 +1,4 @@
-# Step-by-step instructions to build gpuocelot for MacSim GPU trace generation.
+#summary Step-by-step instructions to build gpuocelot for MacSim GPU trace generation
 
 The following commands should build *gpuocelot library* and *trace generators* without *any errors* (tested with gpuocelot r2097), except for the errors due to warnings such as: 
   # * variable ## set but not used* =>  please fix them appropriately.
