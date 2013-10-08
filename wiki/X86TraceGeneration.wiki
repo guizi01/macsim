@@ -6,7 +6,8 @@ MacSim supports x86-ISA simulations. Although both single-threaded/multi-threade
 
 We use PIN [[http://www.pintool.org]], a binary instrumentation tool, as a frontend emulator. We provide a pintool, called x86 trace generator, in MacSim repository (macsim_repo/tools/x86_trace_generator).
 
-Please note that our trace generator may not be backward/forward compatible with different PIN versions. Currently, PIN *41150* revision (June 07, 2011) must be used.
+Please note that our trace generator may not be backward/forward compatible with different PIN versions. 
+Currently, PIN *56759* revision (Jan 20, 2013) must be used. For older versions of macsim, please try to use PIN *41150* revision (June 07, 2011). 
 
 
 = How to build the trace generator =
